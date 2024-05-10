@@ -86,7 +86,7 @@ def autobuy(limite):
         runClient = 'cd massa-client/;./massa-client'
     elif os.path.exists("target/release/massa-client"):
         runClient = 'cd massa-client/;../target/debug/massa-client'
-        else:
+    else:
             return "massa-client : file not found"
     lemassaClient = runClient+' -p '+password+' buy_rolls '+address
 
