@@ -26,7 +26,7 @@
 # Save this script in massa folder
 address = 'AU...'
 password = 'yourPasswordHere'
-fees = '0.001'
+fees = '0.01'
 minimumAmout = 1
 ###########################
 
