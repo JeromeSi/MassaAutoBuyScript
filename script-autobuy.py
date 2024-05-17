@@ -82,10 +82,10 @@ def autobuy(limite):
     global password
     global fees
     global address
-    if os.path.exists("massa-client/massa-client"):
-        runClient = 'cd massa-client/;./massa-client'
-    elif os.path.exists("target/release/massa-client"):
-        runClient = 'cd massa-client/;../target/debug/massa-client'
+    if os.path.exists("~/massa/massa-client/massa-client"):
+        runClient = 'cd ~/massa/massa-client/;./massa-client'
+    elif os.path.exists("~/massa/target/release/massa-client"):
+        runClient = 'cd ~/massa/massa-client/;../target/debug/massa-client'
     else:
             return "massa-client : file not found"
     lemassaClient = runClient+' -p '+password+' buy_rolls '+address
