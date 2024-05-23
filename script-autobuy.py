@@ -28,13 +28,18 @@ address = 'AU...'
 password = 'yourPasswordHere'
 fees = '0.01'
 minimumAmout = 1
-home = "/home/TheUser"
 ###########################
 
 import requests
 import json
 import subprocess
 import os
+
+def chercherFichier(dossierDepart, leFichier):
+    for chemin, nomDossier, nomFichier in os.walk(root_directory):
+        if leFichier in nomFichier:
+            return chemin
+    return False
 
 def chercherClef(truc,cle):
     if isinstance(truc,dict):
@@ -83,11 +88,9 @@ def autobuy(limite):
     global password
     global fees
     global address
-    global home
-    if os.path.exists(home+"/massa/massa-client/massa-client"):
-        runClient = 'cd '+home+'/massa/massa-client/;./massa-client'
-    elif os.path.exists(home+"/massa/target/release/massa-client"):
-        runClient = 'cd '+home+'/massa/massa-client/;../target/debug/massa-client'
+    cheminClient = chercherFichier("/home","massa-client")
+    if cheminClient != False:
+        runClient = 'cd '+cheminClient+';./massa-client'
     else:
             return "massa-client : file not found"
     lemassaClient = runClient+' -p '+password+' buy_rolls '+address
