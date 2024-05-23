@@ -28,6 +28,7 @@ address = 'AU...'
 password = 'yourPasswordHere'
 fees = '0.01'
 minimumAmout = 1
+home = "/home/TheUser"
 ###########################
 
 import requests
@@ -82,10 +83,11 @@ def autobuy(limite):
     global password
     global fees
     global address
-    if os.path.exists("~/massa/massa-client/massa-client"):
-        runClient = 'cd ~/massa/massa-client/;./massa-client'
-    elif os.path.exists("~/massa/target/release/massa-client"):
-        runClient = 'cd ~/massa/massa-client/;../target/debug/massa-client'
+    global home
+    if os.path.exists(home+"/massa/massa-client/massa-client"):
+        runClient = 'cd '+home+'/massa/massa-client/;./massa-client'
+    elif os.path.exists(home+"/massa/target/release/massa-client"):
+        runClient = 'cd '+home+'/massa/massa-client/;../target/debug/massa-client'
     else:
             return "massa-client : file not found"
     lemassaClient = runClient+' -p '+password+' buy_rolls '+address
