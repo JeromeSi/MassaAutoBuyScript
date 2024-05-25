@@ -36,7 +36,7 @@ import subprocess
 import os
 
 def chercherFichier(dossierDepart, leFichier):
-    for chemin, nomDossier, nomFichier in os.walk(root_directory):
+    for chemin, nomDossier, nomFichier in os.walk(dossierDepart):
         if leFichier in nomFichier:
             return chemin
     return False
@@ -88,7 +88,7 @@ def autobuy(limite):
     global password
     global fees
     global address
-    cheminClient = chercherFichier("/home","massa-client")
+    cheminClient = chercherFichier("/","massa-client")
     if cheminClient != False:
         runClient = 'cd '+cheminClient+';./massa-client'
     else:
